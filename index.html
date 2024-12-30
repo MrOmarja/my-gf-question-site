@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My GF?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdf6e3;
+        }
+        .question-box {
+            padding: 20px;
+            border: 2px solid #2a5d84;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #2a5d84;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes-button {
+            background-color: #2ecc71;
+            color: white;
+        }
+        .no-button {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-box" id="questionBox">
+        <h1>Would you be my GF?</h1>
+        <div class="button-container">
+            <button class="yes-button" onclick="yesClicked()">Yes</button>
+            <button class="no-button" onclick="noClicked()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function yesClicked() {
+            alert("Yay! You made the right choice! ❤");
+        }
+
+        function noClicked() {
+            const questionBox = document.getElementById('questionBox');
+            const containerWidth = window.innerWidth;
+            const containerHeight = window.innerHeight;
+
+            // Generate random positions
+            const randomX = Math.floor(Math.random() * (containerWidth - questionBox.offsetWidth));
+            const randomY = Math.floor(Math.random() * (containerHeight - questionBox.offsetHeight));
+
+            // Move the box
+            questionBox.style.left = `${randomX}px`;
+            questionBox.style.top = `${randomY}px`;
+
+            alert("Wrong answer, try again!");
+        }
+    </script>
+</body>
+</html>
